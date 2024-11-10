@@ -3,18 +3,26 @@
   margin: 0;
   padding: 0;
 }
-.navbar{
+
+.navbar {
   background-color: #339AF0 !important;
 }
-.navbar a{
+
+.navbar a {
   display: block;
   padding: 10px;
   text-decoration: none;
   color: #fff;
 }
-.navbar .active{
+
+.navbar .active {
   background-color: #fff;
   color: #339AF0;
   border-radius: 5px;
- font-weight: bold;
+  font-weight: bold;
+}
+
+.mantine-Table-thead {
+  background-color: #339AF0;
+  color: #fff;
 }
