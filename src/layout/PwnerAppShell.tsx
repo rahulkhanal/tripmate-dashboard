@@ -1,20 +1,21 @@
-import { AppShell, Burger, Title } from '@mantine/core';
+import { AppShell, Burger, Button, Flex, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useEffect } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, RouteObject } from 'react-router-dom';
 
 const route = [
-    { path: '/dashboard/properties', label: 'Properties' },
-    { path: '/dashboard/user-setting', label: 'User Settings' },
+    { path: '/property/booking', label: 'Booking' },
+    { path: '/property/user-setting', label: 'User Settings' },
+    { path: '/property/amenety', label: 'Ameneties' },
+    { path: '/property/rating', label: 'Ratings' }
 ]
 
-
-const AppShellLayout = () => {
+const OwnerAppShellLayout = () => {
     const [opened, { toggle }] = useDisclosure();
     useEffect(() => {
         const token = window.localStorage.getItem('token');
         if (!token) {
-            window.location.href = "/"
+            window.location.href = "/loginaspropertyowner"
         }
     }, [])
     return (
@@ -34,7 +35,10 @@ const AppShellLayout = () => {
                     hiddenFrom="sm"
                     size="sm"
                 />
-                <Title order={4}>Tripmate Dashboard</Title>
+                <Flex align='center' justify='space-between' px='xl'>
+                    <h1>TripMate</h1>
+                    <Button variant='outline' color='red' onClick={() => { window.localStorage.clear(), window.location.reload() }}>Logout</Button>
+                </Flex>
             </AppShell.Header>
 
             <AppShell.Navbar p="md" className='navbar'>
@@ -51,4 +55,4 @@ const AppShellLayout = () => {
 
 }
 
-export default AppShellLayout
+export default OwnerAppShellLayout;
